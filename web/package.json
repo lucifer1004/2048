@@ -9,7 +9,9 @@
     "@cycle/dom": "18.3.0",
     "@cycle/rxjs-run": "7.1.0",
     "awesome-typescript-loader": "3.2.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "rxjs": "5.4.3",
+    "snabbdom-pragma": "^2.7.0",
     "typescript": "2.5.3"
   },
   "scripts": {
