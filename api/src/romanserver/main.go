@@ -32,7 +32,7 @@ func main() {
 	})
 	// Create a server and run it on 8000 port
 	s := &http.Server{
-		Addr:           ":8001",
+		Addr:           ":8000",
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
