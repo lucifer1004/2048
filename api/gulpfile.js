@@ -3,7 +3,7 @@ var shell = require('gulp-shell');
 
 // This compiles new binary with source change
 gulp.task("install-binary", shell.task([
- 'sh install'
+ 'rm bin/romanserver && sh install'
 ]));
 
 // Second argument tells install-binary is a deapendency for restart-supervisor

@@ -1,3 +1,2 @@
 package: .
-import:
-- package: github.com/julienschmidt/httprouter
+import: []

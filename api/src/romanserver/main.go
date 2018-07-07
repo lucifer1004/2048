@@ -3,20 +3,16 @@ package main
 import (
 	"fmt"
 	"html"
-	"math/rand"
 	"net/http"
 	"romanNumerals"
 	"strconv"
 	"strings"
-	_ "time"
+	"time"
 )
 
 func main() {
-
-	newMux := http.NewServeMux()
-
 	// http package has methods for dealing with requests
-	newMux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		urlPathElements := strings.Split(r.URL.Path, "/")
 		// If request is GET with correct syntax
 		if urlPathElements[1] == "roman_number" {
@@ -34,19 +30,12 @@ func main() {
 			w.Write([]byte("400 - Bad request"))
 		}
 	})
-
-	newMux.HandleFunc("/randomInt", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, rand.Intn(100))
-	})
-
-	http.ListenAndServe(":8000", newMux)
-
 	// Create a server and run it on 8000 port
-	//s := &http.Server{
-	//	Addr:           ":8000",
-	//	ReadTimeout:    10 * time.Second,
-	//	WriteTimeout:   10 * time.Second,
-	//	MaxHeaderBytes: 1 << 20,
-	//}
-	//s.ListenAndServe()
+	s := &http.Server{
+		Addr:           ":8000",
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
+	}
+	s.ListenAndServe()
 }
