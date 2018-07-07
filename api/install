@@ -7,6 +7,7 @@ CURDIR=`pwd`
 OLDGOPATH="$GOPATH"
 export GOPATH="$CURDIR"
 gofmt -w src
+glide update
 go install romanNumerals
 go install romanserver
 export GOPATH="$OLDGOPATH"
